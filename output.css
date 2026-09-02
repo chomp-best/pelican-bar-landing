@@ -324,9 +324,6 @@
   .aspect-\[563\/851\] {
     aspect-ratio: 563/851;
   }
-  .h-2 {
-    height: calc(var(--spacing) * 2);
-  }
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -350,9 +347,6 @@
   }
   .min-h-\[92svh\] {
     min-height: 92svh;
-  }
-  .w-2 {
-    width: calc(var(--spacing) * 2);
   }
   .w-5 {
     width: calc(var(--spacing) * 5);
@@ -387,9 +381,6 @@
   .max-w-\[54ch\] {
     max-width: 54ch;
   }
-  .max-w-fit {
-    max-width: fit-content;
-  }
   .max-w-sm {
     max-width: var(--container-sm);
   }
@@ -398,9 +389,6 @@
   }
   .shrink-0 {
     flex-shrink: 0;
-  }
-  .animate-ping {
-    animation: var(--animate-ping);
   }
   .flex-col {
     flex-direction: column;
@@ -494,12 +482,6 @@
   .border-\[\#f0f0f3\] {
     border-color: #f0f0f3;
   }
-  .border-white\/15 {
-    border-color: color-mix(in srgb, #fff 15%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-white) 15%, transparent);
-    }
-  }
   .border-white\/25 {
     border-color: color-mix(in srgb, #fff 25%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -508,9 +490,6 @@
   }
   .bg-\[\#0a0a0c\] {
     background-color: #0a0a0c;
-  }
-  .bg-\[\#30d158\] {
-    background-color: #30d158;
   }
   .bg-\[\#e8e8ed\] {
     background-color: #e8e8ed;
@@ -583,9 +562,6 @@
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
-  .py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
-  }
   .py-3 {
     padding-block: calc(var(--spacing) * 3);
   }
@@ -630,6 +606,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .text-left {
+    text-align: left;
   }
   .text-base {
     font-size: var(--text-base);
@@ -703,12 +682,6 @@
   .text-white {
     color: var(--color-white);
   }
-  .text-white\/55 {
-    color: color-mix(in srgb, #fff 55%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 55%, transparent);
-    }
-  }
   .text-white\/60 {
     color: color-mix(in srgb, #fff 60%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -736,9 +709,6 @@
   }
   .underline-offset-4 {
     text-underline-offset: 4px;
-  }
-  .opacity-60 {
-    opacity: 60%;
   }
   .opacity-100 {
     opacity: 100%;
