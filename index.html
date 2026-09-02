@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pelican Bar — Control total para tu salón</title>
+    <meta
+      name="description"
+      content="Pelican Gastrogesto: panel administrativo para monitorizar tu salón en vivo, editar tu carta y auditar la caja, más una app para el comensal con menú digital, pedidos y pagos autónomos."
+    />
+    <meta name="theme-color" content="#fafafa" />
+    <meta property="og:title" content="Pelican Bar — Control total. -y un poco más-" />
+    <meta
+      property="og:description"
+      content="El ecosistema definitivo para digitalizar tu salón y sorprender a tus comensales."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='9' fill='%2318181b'/%3E%3Cg fill='none' stroke='%23fff' stroke-linecap='round'%3E%3Cpath d='M6 15C10.5 9.2 17 9.2 21.5 12' stroke-width='1.8'/%3E%3Cpath d='M6.5 19C11 13.6 16.2 12.9 20.6 15.2' stroke-width='1.5'/%3E%3C/g%3E%3Ccircle cx='21.8' cy='11.2' r='1.7' fill='%23fff'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./public/output.css" />
+  </head>
+  <body>
+    <a
+      href="#panel"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-zinc-900 focus:px-5 focus:py-2.5 focus:text-sm focus:text-white"
+      >Saltar al contenido</a
+    >
+
+    <header class="glass sticky top-0 z-50 border-b border-zinc-200/60">
+      <div class="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-6 px-5 md:px-8">
+        <a href="#inicio" class="flex items-center gap-2.5" aria-label="Pelican Bar — inicio">
+          <svg viewBox="0 0 28 28" class="h-8 w-8" aria-hidden="true">
+            <rect width="28" height="28" rx="9" fill="#18181b" />
+            <g fill="none" stroke="#fff" stroke-linecap="round">
+              <path d="M6 15C10.5 9.2 17 9.2 21.5 12" stroke-width="1.8" />
+              <path d="M6.5 19C11 13.6 16.2 12.9 20.6 15.2" stroke-width="1.5" />
+            </g>
+            <circle cx="21.8" cy="11.2" r="1.7" fill="#fff" />
+          </svg>
+          <span class="text-[1.0625rem] font-bold tracking-tight">Pelican&nbsp;Bar</span>
+        </a>
+
+        <nav class="hidden items-center gap-8 text-[0.9375rem] font-medium text-zinc-600 md:flex" aria-label="Principal">
+          <a href="#panel" class="transition-colors hover:text-zinc-900">Administración</a>
+          <a href="#comensal" class="transition-colors hover:text-zinc-900">Comensal</a>
+          <a href="#demo" class="transition-colors hover:text-zinc-900">Demo</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
+            class="hidden rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg hover:shadow-zinc-900/20 active:scale-[0.98] sm:inline-flex"
+          >
+            Agendar demo
+          </a>
+          <button
+            type="button"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-200 bg-white/80 text-zinc-900 transition-colors hover:bg-white md:hidden"
+            aria-expanded="false"
+            aria-controls="menu-movil"
+            aria-label="Abrir menú"
+            id="boton-menu"
+          >
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="menu-movil" class="hidden border-t border-zinc-200/60 bg-white/95 px-5 pb-6 pt-3 backdrop-blur-xl md:hidden">
+        <nav class="flex flex-col" aria-label="Móvil">
+          <a id="m-link-panel" href="#panel" class="border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800">Administración</a>
+          <a id="m-link-comensal" href="#comensal" class="border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800">Comensal</a>
+          <a id="m-link-demo" href="#demo" class="border-b border-zinc-100 py-3.5 text-base font-medium text-zinc-800">Demo</a>
+          <a
+            id="m-link-cta"
+            href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
+            class="mt-5 inline-flex justify-center rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white"
+            >Agendar demo</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="relative overflow-hidden bg-white pb-20 pt-20 md:pb-28 md:pt-28">
+        <div class="pointer-events-none absolute -left-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-gradient-to-br from-emerald-200/50 via-teal-100/40 to-transparent blur-3xl" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute -right-40 top-40 h-[30rem] w-[30rem] rounded-full bg-gradient-to-br from-sky-200/50 via-zinc-100 to-transparent blur-3xl" aria-hidden="true"></div>
+
+        <div class="relative mx-auto w-full max-w-7xl px-5 md:px-8">
+          <div class="mx-auto max-w-3xl text-center" data-reveal>
+            <p class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-1.5 text-sm font-medium text-zinc-600 shadow-sm">
+              <span class="live-dot h-2 w-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
+              Pelican&nbsp;Gastrogesto&nbsp;·&nbsp;Caja&nbsp;+&nbsp;App&nbsp;del&nbsp;comensal
+            </p>
+            <h1 class="mt-8 text-balance text-[3.4rem] leading-[0.98] font-black tracking-[-0.045em] text-zinc-900 sm:text-[5rem] md:text-[6.2rem]">
+              Control total.<br />
+              <span class="font-semibold text-zinc-400">-y un poco más-</span>
+            </h1>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-500 md:text-xl">
+              El ecosistema definitivo para digitalizar tu salón y sorprender a tus comensales.
+            </p>
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
+                class="inline-flex items-center gap-2 rounded-full bg-zinc-900 px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-xl hover:shadow-zinc-900/25 active:scale-[0.98]"
+              >
+                Agendar una demo
+              </a>
+              <a href="#panel" class="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-8 py-3.5 text-base font-semibold text-zinc-900 transition-all duration-200 hover:border-zinc-900 hover:bg-zinc-50">
+                Ver el ecosistema
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-16 flex justify-center md:mt-20" data-reveal>
+            <div class="relative w-full max-w-[320px] md:max-w-[380px]">
+              <div class="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-emerald-200/60 to-sky-200/60 blur-3xl" aria-hidden="true"></div>
+              <div class="floaty rounded-[2.5rem] bg-white p-3 pb-5 shadow-hero ring-1 ring-zinc-200/70">
+                <img
+                  src="./Diseño%20sin%20título.png"
+                  alt="Composición de la interfaz de Pelican Bar: panel de salón en vivo y app del comensal en pantalla"
+                  class="w-full rounded-[1.9rem] object-cover"
+                  width="1080"
+                  height="1350"
+                  fetchpriority="high"
+                />
+              </div>
+
+              <div class="glass absolute -left-10 top-14 hidden items-center gap-3 rounded-3xl border border-white/70 px-5 py-4 shadow-2xl shadow-zinc-900/10 md:flex" style="animation: floaty 9s ease-in-out 1.6s infinite" aria-hidden="true">
+                <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-zinc-900">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                    <path d="M3 9.5h18l-2.2 8H5.2L3 9.5zM6 9.5V6a6 6 0 0 1 12 0v3.5" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-sm font-semibold text-zinc-900">Salón en vivo</p>
+                  <p class="text-xs text-zinc-500">Nuevo plato · Mesa 8</p>
+                </div>
+              </div>
+
+              <div class="glass absolute -right-12 -top-6 hidden items-center gap-3 rounded-3xl border border-white/70 px-5 py-4 shadow-2xl shadow-zinc-900/10 md:flex" style="animation: floaty 9s ease-in-out 2.4s infinite" aria-hidden="true">
+                <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-white ring-1 ring-zinc-200">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 text-zinc-900" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="text-sm font-semibold text-zinc-900">Mesa 3 llamó al mozo</p>
+                  <p class="text-xs text-zinc-500">Aviso inmediato en el panel</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-zinc-100 bg-white" aria-label="Ecosistema">
+        <div class="mx-auto grid w-full max-w-7xl gap-8 px-5 py-12 sm:grid-cols-3 md:px-8">
+          <div class="flex items-start gap-4" data-reveal>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-zinc-100">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="2" />
+                <rect x="14" y="3" width="7" height="7" rx="2" />
+                <rect x="3" y="14" width="7" height="7" rx="2" />
+                <rect x="14" y="14" width="7" height="7" rx="2" />
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold text-zinc-900">Panel administrativo</p>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-500">Salón en vivo, carta y caja auditada en una sola vista.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4" data-reveal>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-zinc-100">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <path d="M4 7h11M4 12h11M4 17h7" />
+                <circle cx="18.5" cy="7" r="1.3" />
+                <circle cx="18.5" cy="17" r="1.3" />
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold text-zinc-900">Web app del comensal</p>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-500">Menú digital, carrito y pago autónomo por QR en cada mesa.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4" data-reveal>
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-zinc-100">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 text-zinc-700" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <rect x="4" y="7" width="16" height="13" rx="3" />
+                <path d="M12 7V4M8 3.5h8M8 13l3 3.2 5-5.6" />
+              </svg>
+            </span>
+            <div>
+              <p class="font-semibold text-zinc-900">Alertas en tiempo real</p>
+              <p class="mt-1 text-sm leading-relaxed text-zinc-500">Cada pedido, llamado y cuenta llega al momento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="panel" aria-label="Panel administrativo">
+        <div id="salon" class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+          <div data-reveal>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Panel administrativo · Salón</p>
+            <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+              Tu salón, bajo radar.
+            </h2>
+            <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+              Monitorización en tiempo real con alertas sonoras y visuales cuando un comensal
+              pide comida, llama al mozo o pide la cuenta.
+            </p>
+            <ul class="mt-8 space-y-3 text-zinc-600">
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Estado de cada mesa al instante
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Avisos sonoros y visuales por mesa
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Pedidos, llamados y cuentas sin perderse
+              </li>
+            </ul>
+          </div>
+          <figure class="group relative" data-reveal>
+            <img
+              src="./Screenshot%202026-08-26%20at%2020-22-10%20resto-mvp.png"
+              alt="Panel administrativo de Pelican Bar: salón en vivo con el estado de cada mesa"
+              class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              width="1350"
+              height="728"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div id="carta" class="bg-zinc-50">
+          <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+            <figure class="group relative order-2 lg:order-1" data-reveal>
+              <img
+                src="./Screenshot%202026-08-26%20at%2020-22-25%20resto-mvp.png"
+                alt="Panel administrativo de Pelican Bar: edición de la carta con precios y promociones"
+                class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                width="1350"
+                height="728"
+                loading="lazy"
+              />
+            </figure>
+            <div class="order-1 lg:order-2" data-reveal>
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Panel administrativo · Carta</p>
+              <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+                Tu carta es tuya. <span class="font-semibold text-zinc-400">-y de tus clientes-</span>
+              </h2>
+              <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+                Edición de precios en tiempo real y anuncios en el "Marquee" que aparecen al
+                instante en los teléfonos de los comensales.
+              </p>
+              <ul class="mt-8 space-y-3 text-zinc-600">
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Precios actualizados al momento
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Promociones visibles en el menú digital
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Marquee desde tu panel hacia cada teléfono
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="mesas" class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+          <div data-reveal>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Panel administrativo · Mesas</p>
+            <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+              Tus mesas, tus reglas.
+            </h2>
+            <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+              Crea mesas y genera códigos QR al instante, listos para imprimir.
+            </p>
+            <ul class="mt-8 space-y-3 text-zinc-600">
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Mesas creadas en segundos
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Código QR propio por mesa
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Listo para imprimir y pegar en el local
+              </li>
+            </ul>
+          </div>
+          <figure class="group relative" data-reveal>
+            <img
+              src="./Screenshot%202026-08-26%20at%2020-22-38%20resto-mvp.png"
+              alt="Panel administrativo de Pelican Bar: creación de mesas y códigos QR para imprimir"
+              class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              width="1350"
+              height="728"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div id="caja" class="bg-zinc-50">
+          <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+            <figure class="group relative order-2 lg:order-1" data-reveal>
+              <img
+                src="./Screenshot%202026-08-26%20at%2020-24-47%20resto-mvp.png"
+                alt="Panel administrativo de Pelican Bar: cierre de caja con desglose por método de pago"
+                class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                width="1350"
+                height="728"
+                loading="lazy"
+              />
+            </figure>
+            <div class="order-1 lg:order-2" data-reveal>
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Panel administrativo · Caja</p>
+              <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+                Auditoría exacta. <span class="font-semibold text-zinc-400">-a un solo clic-</span>
+              </h2>
+              <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+                Desglose automático por método de pago y exportación blindada a Excel (.csv).
+              </p>
+              <ul class="mt-8 space-y-3 text-zinc-600">
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Desglose por método de pago
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Exportación a Excel (.csv) en un clic
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Cierre de caja sin planillas a mano
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comensal" class="border-t border-zinc-100 bg-white" aria-label="Experiencia del comensal">
+        <div class="mx-auto w-full max-w-7xl px-5 pb-4 pt-20 text-center md:px-8 md:pt-28" data-reveal>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Experiencia del comensal</p>
+          <h2 class="mx-auto mt-4 max-w-3xl text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-6xl">
+            Cada mesa, una app lista para usar.
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-zinc-500">
+            Con un escaneo de QR, tu cliente navega el menú, arma su pedido y cierra su mesa
+            sin intermediarios.
+          </p>
+        </div>
+
+        <div id="app-menu" class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+          <div data-reveal>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Comensal · Menú y llamados</p>
+            <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+              La App que tus clientes amarán.
+            </h2>
+            <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+              Menú digital interactivo con notificaciones en vivo de los llamados al mozo.
+            </p>
+            <ul class="mt-8 space-y-3 text-zinc-600">
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Menú digital siempre ordenado
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Llamado al mozo con aviso en vivo
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Sin cartas impresas desactualizadas
+              </li>
+            </ul>
+          </div>
+          <figure class="group relative" data-reveal>
+            <img
+              src="./Screenshot%202026-09-02%20at%2000-55-53%20resto-mvp.png"
+              alt="App del comensal de Pelican Bar: menú digital interactivo con llamados al mozo"
+              class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+              onerror="this.classList.add('hidden');this.nextElementSibling.classList.remove('hidden')"
+            />
+            <div class="hidden aspect-[4/3] w-full items-center justify-center rounded-[2rem] border border-white/70 bg-gradient-to-br from-zinc-100 to-white p-10 text-center shadow-frame sm:flex">
+              <div>
+                <svg viewBox="0 0 24 24" class="mx-auto h-10 w-10 text-zinc-300" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="4" />
+                  <path d="M3 9h18M9 3v18" />
+                </svg>
+                <p class="mt-4 font-semibold text-zinc-700">Captura de la app — pendiente</p>
+                <p class="mt-2 text-sm text-zinc-400">Agregá el archivo <span class="font-semibold text-zinc-500">Screenshot 2026-09-02 at 00-55-53 resto-mvp.png</span> en la raíz del proyecto.</p>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div id="app-pedidos" class="bg-zinc-50">
+          <div class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+            <figure class="group relative order-2 lg:order-1" data-reveal>
+              <img
+                src="./Screenshot%202026-09-02%20at%2000-55-39%20resto-mvp.png"
+                alt="App del comensal de Pelican Bar: carrito para confirmar el pedido directo a cocina"
+                class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                loading="lazy"
+                onerror="this.classList.add('hidden');this.nextElementSibling.classList.remove('hidden')"
+              />
+              <div class="hidden aspect-[4/3] w-full items-center justify-center rounded-[2rem] border border-white/70 bg-gradient-to-br from-zinc-100 to-white p-10 text-center shadow-frame sm:flex">
+                <div>
+                  <svg viewBox="0 0 24 24" class="mx-auto h-10 w-10 text-zinc-300" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="9" cy="20" r="1.4" />
+                    <circle cx="17" cy="20" r="1.4" />
+                    <path d="M3 4h2l2.6 11.2a1.8 1.8 0 0 0 1.8 1.3h7.4a1.8 1.8 0 0 0 1.8-1.4L20.5 9H6" />
+                  </svg>
+                  <p class="mt-4 font-semibold text-zinc-700">Captura de la app — pendiente</p>
+                  <p class="mt-2 text-sm text-zinc-400">Agregá el archivo <span class="font-semibold text-zinc-500">Screenshot 2026-09-02 at 00-55-39 resto-mvp.png</span> en la raíz del proyecto.</p>
+                </div>
+              </div>
+            </figure>
+            <div class="order-1 lg:order-2" data-reveal>
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Comensal · Pedidos</p>
+              <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+                Pedidos sin intermediarios.
+              </h2>
+              <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+                Carrito de compras inteligente para que el cliente confirme su orden directo
+                a cocina.
+              </p>
+              <ul class="mt-8 space-y-3 text-zinc-600">
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Carrito que acompaña toda la visita
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Orden confirmada directo a cocina
+                </li>
+                <li class="flex items-center gap-3">
+                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                  Menos idas y vueltas entre barra y sala
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="app-pago" class="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 py-24 md:px-8 lg:grid-cols-2 lg:gap-20 md:py-32">
+          <div data-reveal>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Comensal · Pago</p>
+            <h2 class="mt-4 text-balance text-4xl font-black leading-[1.03] tracking-[-0.03em] text-zinc-900 md:text-5xl">
+              Pagos autónomos y rápidos.
+            </h2>
+            <p class="mt-6 max-w-[56ch] text-lg leading-relaxed text-zinc-500">
+              El cliente cierra su mesa seleccionando su método de pago preferido, agilizando
+              la rotación del salón.
+            </p>
+            <ul class="mt-8 space-y-3 text-zinc-600">
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Cierre de mesa sin esperar al mozo
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                El método de pago, elegido por el cliente
+              </li>
+              <li class="flex items-center gap-3">
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-zinc-900" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Rotación más rápida, noche con más covers
+              </li>
+            </ul>
+          </div>
+          <figure class="group relative" data-reveal>
+            <img
+              src="./Screenshot%202026-09-02%20at%2000-56-07%20resto-mvp.png"
+              alt="App del comensal de Pelican Bar: cierre de mesa y selección del método de pago"
+              class="w-full rounded-[2rem] border border-white/70 bg-white shadow-frame transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+              loading="lazy"
+              onerror="this.classList.add('hidden');this.nextElementSibling.classList.remove('hidden')"
+            />
+            <div class="hidden aspect-[4/3] w-full items-center justify-center rounded-[2rem] border border-white/70 bg-gradient-to-br from-zinc-100 to-white p-10 text-center shadow-frame sm:flex">
+              <div>
+                <svg viewBox="0 0 24 24" class="mx-auto h-10 w-10 text-zinc-300" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+                  <rect x="3" y="6" width="18" height="13" rx="3" />
+                  <path d="M3 10h18M7 15h4" />
+                </svg>
+                <p class="mt-4 font-semibold text-zinc-700">Captura de la app — pendiente</p>
+                <p class="mt-2 text-sm text-zinc-400">Agregá el archivo <span class="font-semibold text-zinc-500">Screenshot 2026-09-02 at 00-56-07 resto-mvp.png</span> en la raíz del proyecto.</p>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="demo" class="mx-auto w-full max-w-7xl px-5 pb-24 pt-4 md:px-8 md:pb-32">
+        <div class="relative overflow-hidden rounded-[2rem] bg-zinc-900 px-6 py-20 text-center md:rounded-[3rem] md:px-16 md:py-28" data-reveal>
+          <div class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-gradient-to-br from-emerald-400/40 to-teal-300/20 blur-3xl" aria-hidden="true"></div>
+          <div class="pointer-events-none absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-gradient-to-br from-sky-400/30 to-indigo-300/20 blur-3xl" aria-hidden="true"></div>
+
+          <div class="relative">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-400">Demo</p>
+            <h2 class="mx-auto mt-4 max-w-3xl text-balance text-4xl font-black leading-[1.02] tracking-[-0.03em] text-white md:text-6xl">
+              ¿Listo para digitalizar tu salón?
+            </h2>
+            <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
+              Agendá una demo de veinte minutos y vemos tu salón real: caja, carta y la app
+              del comensal funcionando juntas.
+            </p>
+            <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
+                class="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-base font-semibold text-zinc-900 transition-all duration-200 hover:bg-zinc-200 hover:shadow-xl hover:shadow-white/10 active:scale-[0.98]"
+              >
+                Agendar una demo
+              </a>
+              <a href="mailto:pelicanstudioarg@gmail.com" class="rounded-full px-5 py-3.5 text-sm font-medium text-zinc-400 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white">
+                o escribinos a pelicanstudioarg@gmail.com
+              </a>
+            </div>
+            <p class="mt-10 text-sm text-zinc-500">Demo de 20 minutos con tu equipo · Sin compromiso</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-zinc-200/60 bg-zinc-50">
+      <div class="mx-auto w-full max-w-7xl px-5 pt-16 md:px-8">
+        <div class="grid gap-12 md:grid-cols-12">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-2.5">
+              <svg viewBox="0 0 28 28" class="h-7 w-7" aria-hidden="true">
+                <rect width="28" height="28" rx="9" fill="#18181b" />
+                <g fill="none" stroke="#fff" stroke-linecap="round">
+                  <path d="M6 15C10.5 9.2 17 9.2 21.5 12" stroke-width="1.8" />
+                  <path d="M6.5 19C11 13.6 16.2 12.9 20.6 15.2" stroke-width="1.5" />
+                </g>
+                <circle cx="21.8" cy="11.2" r="1.7" fill="#fff" />
+              </svg>
+              <span class="text-lg font-bold tracking-tight">Pelican Bar</span>
+            </div>
+            <p class="mt-4 max-w-sm text-sm leading-relaxed text-zinc-500">
+              Pelican Gastrogesto: panel administrativo y app del comensal en un solo
+              ecosistema para bares y restaurantes.
+            </p>
+            <a
+              href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
+              class="mt-6 inline-flex rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:bg-zinc-800 hover:shadow-lg hover:shadow-zinc-900/20 active:scale-[0.98]"
+            >
+              Agendar demo
+            </a>
+          </div>
+
+          <div class="md:col-span-3">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Panel</p>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><a href="#salon" class="transition-colors hover:text-zinc-900">Salón en vivo</a></li>
+              <li><a href="#carta" class="transition-colors hover:text-zinc-900">Carta y promociones</a></li>
+              <li><a href="#mesas" class="transition-colors hover:text-zinc-900">Mesas y códigos QR</a></li>
+              <li><a href="#caja" class="transition-colors hover:text-zinc-900">Cierre de caja</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Comensal</p>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><a href="#app-menu" class="transition-colors hover:text-zinc-900">Menú interactivo</a></li>
+              <li><a href="#app-pedidos" class="transition-colors hover:text-zinc-900">Pedidos</a></li>
+              <li><a href="#app-pago" class="transition-colors hover:text-zinc-900">Pagos</a></li>
+              <li><a href="#demo" class="transition-colors hover:text-zinc-900">Demo</a></li>
+            </ul>
+          </div>
+
+          <div class="md:col-span-2">
+            <p class="text-xs font-semibold uppercase tracking-[0.15em] text-zinc-400">Contacto</p>
+            <ul class="mt-4 space-y-3 text-sm text-zinc-600">
+              <li><a href="mailto:pelicanstudioarg@gmail.com" class="break-all transition-colors hover:text-zinc-900">pelicanstudioarg@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-zinc-200/60 py-8 text-sm text-zinc-400 sm:flex-row sm:items-center">
+          <p>© 2026 Pelican Studio. Todos los derechos reservados.</p>
+          <p>Hecho para bares y restaurantes que quieren un salón que se ve en vivo.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        document.documentElement.classList.add("js");
+
+        var menuBtn = document.getElementById("boton-menu");
+        var menu = document.getElementById("menu-movil");
+        if (menuBtn && menu) {
+          var links = menu.querySelectorAll("a");
+          menuBtn.addEventListener("click", function () {
+            var open = menu.classList.toggle("hidden") === false;
+            menuBtn.setAttribute("aria-expanded", String(open));
+            menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+          });
+          links.forEach(function (link) {
+            link.addEventListener("click", function () {
+              menu.classList.add("hidden");
+              menuBtn.setAttribute("aria-expanded", "false");
+              menuBtn.setAttribute("aria-label", "Abrir menú");
+            });
+          });
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && !menu.classList.contains("hidden")) {
+              menu.classList.add("hidden");
+              menuBtn.setAttribute("aria-expanded", "false");
+              menuBtn.focus();
+            }
+          });
+        }
+
+        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          var els = document.querySelectorAll("[data-reveal]");
+          if (els.length) {
+            var io = new IntersectionObserver(
+              function (entries) {
+                entries.forEach(function (entry) {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add("is-in");
+                    io.unobserve(entry.target);
+                  }
+                });
+              },
+              { threshold: 0.15 }
+            );
+            els.forEach(function (el) {
+              io.observe(el);
+            });
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
