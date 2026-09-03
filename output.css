@@ -595,6 +595,9 @@
   .pt-24 {
     padding-top: calc(var(--spacing) * 24);
   }
+  .pr-5 {
+    padding-right: calc(var(--spacing) * 5);
+  }
   .pb-2 {
     padding-bottom: calc(var(--spacing) * 2);
   }
@@ -609,6 +612,9 @@
   }
   .pb-24 {
     padding-bottom: calc(var(--spacing) * 24);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
   }
   .text-center {
     text-align: center;
@@ -891,8 +897,14 @@
     .md\:pt-28 {
       padding-top: calc(var(--spacing) * 28);
     }
+    .md\:pr-8 {
+      padding-right: calc(var(--spacing) * 8);
+    }
     .md\:pb-32 {
       padding-bottom: calc(var(--spacing) * 32);
+    }
+    .md\:pl-4 {
+      padding-left: calc(var(--spacing) * 4);
     }
     .md\:text-xl {
       font-size: var(--text-xl);
