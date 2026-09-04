@@ -255,20 +255,17 @@
   .absolute {
     position: absolute;
   }
-  .fixed {
-    position: fixed;
-  }
   .relative {
     position: relative;
   }
   .static {
     position: static;
   }
+  .sticky {
+    position: sticky;
+  }
   .inset-0 {
     inset: 0px;
-  }
-  .inset-x-0 {
-    inset-inline: 0px;
   }
   .top-0 {
     top: 0px;
