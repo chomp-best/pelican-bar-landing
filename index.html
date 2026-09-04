@@ -33,7 +33,7 @@
     <header class="apple-nav sticky top-0 z-50">
       <div class="mx-auto flex h-13 w-full max-w-7xl items-center justify-between gap-6 pl-2 pr-5 md:pl-4 md:pr-8">
         <a href="#inicio" class="flex items-center gap-2.5" aria-label="Pelican Bar — inicio">
-          <img src="./hero.png" alt="" class="h-9 w-auto rounded-lg" loading="eager" aria-hidden="true" />
+          <img src="./hero.png" alt="" class="logo-img h-9 w-auto rounded-lg" loading="eager" aria-hidden="true" />
           <span class="wordmark text-[0.9375rem] font-semibold tracking-tight text-[#1d1d1f]">Pelican&nbsp;Bar</span>
         </a>
 
@@ -590,12 +590,16 @@ loading="lazy"
           var navH = nav.offsetHeight;
           var updateNav = function () {
             var r = inicio.getBoundingClientRect();
-            nav.classList.toggle("over-hero", r.top < navH && r.bottom > navH);
-            nav.classList.toggle("scrolled", r.bottom <= navH);
+            nav.classList.toggle("over-hero", r.top < navH - 1 && r.bottom > navH);
           };
           updateNav();
-          document.addEventListener("scroll", updateNav, { passive: true });
-          window.addEventListener("resize", updateNav, { passive: true });
+          var onScroll = function () { updateNav(); };
+          document.addEventListener("scroll", onScroll, { passive: true });
+          window.addEventListener("resize", onScroll, { passive: true });
+          window.addEventListener("load", onScroll, { passive: true });
+          if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function () { updateNav(); });
+          }
         }
 
         var menuBtn = document.getElementById("boton-menu");
