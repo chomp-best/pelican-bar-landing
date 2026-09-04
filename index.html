@@ -34,7 +34,7 @@
       <div class="mx-auto flex h-13 w-full max-w-7xl items-center justify-between gap-6 pl-2 pr-5 md:pl-4 md:pr-8">
         <a href="#inicio" class="flex items-center gap-2.5" aria-label="Pelican Bar — inicio">
           <img src="./hero.png" alt="" class="h-9 w-auto rounded-lg" loading="eager" aria-hidden="true" />
-          <span class="text-[0.9375rem] font-semibold tracking-tight text-[#1d1d1f]">Pelican&nbsp;Bar</span>
+          <span class="wordmark text-[0.9375rem] font-semibold tracking-tight text-[#1d1d1f]">Pelican&nbsp;Bar</span>
         </a>
 
         <nav class="hidden items-center gap-8 text-[0.8125rem] font-medium text-[#424245] md:flex" aria-label="Principal">
@@ -52,7 +52,7 @@
           </a>
           <button
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d2d2d7] bg-white/80 text-[#1d1d1f] transition-colors hover:bg-white md:hidden"
+            class="burger inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d2d2d7] bg-white/80 text-[#1d1d1f] transition-colors hover:bg-white md:hidden"
             aria-expanded="false"
             aria-controls="menu-movil"
             aria-label="Abrir menú"
@@ -582,6 +582,20 @@ loading="lazy"
             document.addEventListener("click", play);
             document.addEventListener("touchstart", play);
           });
+        }
+
+        var nav = document.querySelector("header");
+        var inicio = document.getElementById("inicio");
+        if (nav && inicio) {
+          var navH = nav.offsetHeight;
+          var updateNav = function () {
+            var r = inicio.getBoundingClientRect();
+            nav.classList.toggle("over-hero", r.top < navH && r.bottom > navH);
+            nav.classList.toggle("scrolled", r.bottom <= navH);
+          };
+          updateNav();
+          document.addEventListener("scroll", updateNav, { passive: true });
+          window.addEventListener("resize", updateNav, { passive: true });
         }
 
         var menuBtn = document.getElementById("boton-menu");
