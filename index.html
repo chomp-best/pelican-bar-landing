@@ -1,635 +1,90 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pelican Bar — Control total para tu salón</title>
-    <meta
-      name="description"
-      content="Pelican Gastrogesto: panel administrativo para monitorizar tu salón en vivo, editar tu carta y auditar la caja, más una app para el comensal con menú digital, pedidos y pagos autónomos."
-    />
-    <meta name="theme-color" content="#f5f5f7" />
-    <meta property="og:title" content="Pelican Bar — Control total. -y un poco más-" />
-    <meta
-      property="og:description"
-      content="El ecosistema definitivo para digitalizar tu salón y sorprender a tus comensales."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="./hero.png" />
-    <link rel="stylesheet" href="./output.css" />
-  </head>
-  <body>
-    <a
-      href="#inicio"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-apple focus:px-5 focus:py-2.5 focus:text-sm focus:text-white"
-      >Saltar al contenido</a
-    >
-
-    <header class="apple-nav sticky top-0 z-50">
-      <div class="mx-auto flex h-13 w-full max-w-7xl items-center justify-between gap-6 pl-2 pr-5 md:pl-4 md:pr-8">
-        <a href="#inicio" class="flex items-center gap-2.5" aria-label="Pelican Bar — inicio">
-          <img src="./hero.png" alt="" class="logo-img h-9 w-auto rounded-lg" loading="eager" aria-hidden="true" />
-          <span class="wordmark text-[0.9375rem] font-semibold tracking-tight text-[#1d1d1f]">Pelican&nbsp;Bar</span>
-        </a>
-
-        <nav class="hidden items-center gap-8 text-[0.8125rem] font-medium text-[#424245] md:flex" aria-label="Principal">
-          <a href="#panel" class="nav-link">Administración</a>
-          <a href="#comensal" class="nav-link">Comensal</a>
-          <a href="#demo" class="nav-link">Demo</a>
-        </nav>
-
-        <div class="flex items-center gap-3">
-          <a
-            href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
-            class="hidden rounded-full bg-apple px-5 py-2 text-[0.8125rem] font-medium text-white transition-colors duration-150 hover:bg-[#0077ed] active:scale-[0.98] sm:inline-flex"
-          >
-            Agendar demo
-          </a>
-          <button
-            type="button"
-            class="burger inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d2d2d7] bg-white/80 text-[#1d1d1f] transition-colors hover:bg-white md:hidden"
-            aria-expanded="false"
-            aria-controls="menu-movil"
-            aria-label="Abrir menú"
-            id="boton-menu"
-          >
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-              <path d="M6 8h12M6 16h12" />
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      <div id="menu-movil" class="hidden border-t border-[#e8e8ed] bg-white/95 px-5 pb-6 pt-3 backdrop-blur-xl md:hidden">
-        <nav class="flex flex-col" aria-label="Móvil">
-          <a id="m-link-panel" href="#panel" class="border-b border-[#f0f0f3] py-3.5 text-base font-medium text-[#1d1d1f]">Administración</a>
-          <a id="m-link-comensal" href="#comensal" class="border-b border-[#f0f0f3] py-3.5 text-base font-medium text-[#1d1d1f]">Comensal</a>
-          <a id="m-link-demo" href="#demo" class="border-b border-[#f0f0f3] py-3.5 text-base font-medium text-[#1d1d1f]">Demo</a>
-          <a
-            id="m-link-cta"
-            href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
-            class="mt-5 inline-flex justify-center rounded-full bg-apple px-6 py-3 text-sm font-medium text-white"
-            >Agendar demo</a
-          >
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section id="inicio" class="relative flex min-h-[92svh] items-center overflow-hidden bg-[#0a0a0c]">
-        <video
-          class="absolute inset-0 h-full w-full object-contain opacity-100"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          poster="./hero-poster.jpg"
-          aria-hidden="true"
-          tabindex="-1"
-        >
-          <source src="./hero.mp4" type="video/mp4" />
-          <source src="./hero.webm" type="video/webm" />
-        </video>
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/60 via-[#0a0a0c]/25 to-[#0a0a0c]/75" aria-hidden="true"></div>
-
-        <div class="relative mx-auto w-full max-w-4xl px-5 pt-24 pb-12 text-center md:px-8">
-          <h1 class="apple-headline mx-auto mt-2 max-w-xl text-balance text-white [text-shadow:0_2px_32px_rgb(10,10,12,0.55)]">
-            Control total.
-            <br />
-            <span class="font-medium text-white/60">-y un poco más-</span>
-          </h1>
-          <p class="mx-auto mt-8 max-w-xl text-balance text-lg leading-relaxed text-white/85 [text-shadow:0_2px_24px_rgb(10,10,12,0.5)] md:text-xl">
-            El ecosistema definitivo para digitalizar tu salón y sorprender a tus comensales.
-          </p>
-          <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
-              class="inline-flex items-center gap-2 rounded-full bg-apple px-7 py-3 text-[0.9375rem] font-medium text-white transition-all duration-150 hover:bg-[#0077ed] active:scale-[0.98]"
-            >
-              Agendar una demo
-            </a>
-            <a
-              href="#panel"
-              class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-7 py-3 text-[0.9375rem] font-medium text-white backdrop-blur-md transition-colors duration-150 hover:bg-white/20"
-            >
-              Ver el ecosistema
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-white" aria-label="Ecosistema">
-        <div class="mx-auto grid w-full max-w-6xl gap-px overflow-hidden bg-[#e8e8ed] px-0 pb-2 sm:grid-cols-3 sm:rounded-[1.75rem] sm:border sm:border-[#e8e8ed]" style="margin-block: clamp(3rem, 7vw, 5rem)">
-          <div class="flex h-full flex-col items-start gap-3 bg-white p-8 md:p-10" data-reveal>
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5f5f7] text-[#1d1d1f]">
-              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-                <rect x="3" y="3" width="7" height="7" rx="2" />
-                <rect x="14" y="3" width="7" height="7" rx="2" />
-                <rect x="3" y="14" width="7" height="7" rx="2" />
-                <rect x="14" y="14" width="7" height="7" rx="2" />
-              </svg>
-            </span>
-            <div>
-              <h2 class="text-lg font-semibold tracking-tight text-[#1d1d1f]">Panel administrativo</h2>
-              <p class="mt-1.5 text-sm leading-relaxed text-[#6e6e73]">Salón en vivo, carta y caja auditada en una sola vista.</p>
-            </div>
-          </div>
-          <div class="flex h-full flex-col items-start gap-3 bg-white p-8 md:p-10" data-reveal>
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5f5f7] text-[#1d1d1f]">
-              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-                <rect x="3" y="6" width="16" height="13" rx="3" />
-                <path d="M3 10h16" />
-              </svg>
-            </span>
-            <div>
-              <h2 class="text-lg font-semibold tracking-tight text-[#1d1d1f]">Web app del comensal</h2>
-              <p class="mt-1.5 text-sm leading-relaxed text-[#6e6e73]">Menú digital, carrito y pago autónomo por QR en cada mesa.</p>
-            </div>
-          </div>
-          <div class="flex h-full flex-col items-start gap-3 bg-white p-8 md:p-10" data-reveal>
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5f5f7] text-[#1d1d1f]">
-              <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
-                <path d="M12 3l2.6 5.6 6 .8-4.4 4.1 1.1 6L12 16.9 6.7 19.5l1.1-6-4.4-4.1 6-.8L12 3z" />
-              </svg>
-            </span>
-            <div>
-              <h2 class="text-lg font-semibold tracking-tight text-[#1d1d1f]">Alertas en tiempo real</h2>
-              <p class="mt-1.5 text-sm leading-relaxed text-[#6e6e73]">Cada pedido, llamado y cuenta llega al momento.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="panel" aria-label="Panel administrativo" class="bg-white">
-        <div id="salon" class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-          <div data-reveal>
-            <h2 class="apple-headline text-balance text-[#1d1d1f]">
-              Tu salón,<br />bajo radar.
-            </h2>
-            <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-              Monitorización en tiempo real con alertas sonoras y visuales cuando un comensal
-              pide comida, llama al mozo o pide la cuenta.
-            </p>
-            <ul class="mt-7 space-y-3">
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Estado de cada mesa al instante
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Avisos sonoros y visuales por mesa
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Pedidos, llamados y cuentas sin perderse
-              </li>
-            </ul>
-          </div>
-<figure class="group relative" data-reveal>
-            <div class="apple-frame overflow-hidden">
-              <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover" width="1350" height="728" loading="lazy" aria-hidden="true" tabindex="-1">
-                <source src="./panel_en_vivo.mp4" type="video/mp4">
-              </video>
-</div>
-          </figure>
-        </div>
-
-        <div id="carta" class="bg-[#f5f5f7]">
-          <div class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-<figure class="group relative order-2 lg:order-1" data-reveal>
-              <div class="apple-frame overflow-hidden">
-                <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover" width="1350" height="728" loading="lazy" aria-hidden="true" tabindex="-1">
-                  <source src="./carta.mp4" type="video/mp4">
-                </video></div></figure>
-            <div class="order-1 lg:order-2" data-reveal>
-              <h2 class="apple-headline text-balance text-[#1d1d1f]">
-                Tu carta es tuya. <span class="font-medium text-[#86868b]">-y de tus clientes-</span>
-              </h2>
-              <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-                Edición de precios en tiempo real y anuncios en el "Marquee" que aparecen al
-                instante en los teléfonos de los comensales.
-              </p>
-              <ul class="mt-7 space-y-3">
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Precios actualizados al momento
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Promociones visibles en el menú digital
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Marquee desde tu panel hacia cada teléfono
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="mesas" class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-          <div data-reveal>
-            <h2 class="apple-headline text-balance text-[#1d1d1f]">
-              Tus mesas,<br />tus reglas.
-            </h2>
-            <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-              Crea mesas y genera códigos QR al instante, listos para imprimir.
-            </p>
-            <ul class="mt-7 space-y-3">
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Mesas creadas en segundos
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Código QR propio por mesa
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Listo para imprimir y pegar en el local
-              </li>
-            </ul>
-          </div>
-<figure class="group relative" data-reveal>
-            <div class="apple-frame overflow-hidden">
-              <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover" width="1350" height="728" loading="lazy" aria-hidden="true" tabindex="-1">
-                <source src="./mesas.mp4" type="video/mp4">
-              </video></div></figure>
-        </div>
-
-        <div id="caja" class="bg-[#f5f5f7]">
-          <div class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-<figure class="group relative order-2 lg:order-1" data-reveal>
-              <div class="apple-frame overflow-hidden">
-                <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover" width="1350" height="728" loading="lazy" aria-hidden="true" tabindex="-1">
-                  <source src="./cierre.mp4" type="video/mp4">
-                </video></div></figure>
-            <div class="order-1 lg:order-2" data-reveal>
-              <h2 class="apple-headline text-balance text-[#1d1d1f]">
-                Auditoría exacta. <span class="font-medium text-[#86868b]">-a un solo clic-</span>
-              </h2>
-              <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-                Desglose automático por método de pago y exportación blindada a Excel (.csv).
-              </p>
-              <ul class="mt-7 space-y-3">
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Desglose por método de pago
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Exportación a Excel (.csv) en un clic
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Cierre de caja sin planillas a mano
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="comensal" class="border-t border-[#e8e8ed] bg-white" aria-label="Experiencia del comensal">
-        <div class="mx-auto w-full max-w-7xl px-5 pb-4 pt-20 text-center md:px-8 md:pt-28" data-reveal>
-          <h2 class="apple-headline-lg mx-auto max-w-3xl text-balance text-[#1d1d1f]">
-            Cada mesa, una app lista para usar.
-          </h2>
-          <p class="mx-auto mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-            Con un escaneo de QR, tu cliente navega el menú, arma su pedido y cierra su mesa
-            sin intermediarios.
-          </p>
-        </div>
-
-        <div id="app-menu" class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-          <div data-reveal>
-            <h2 class="apple-headline text-balance text-[#1d1d1f]">
-              La App que tus clientes&nbsp;amarán.
-            </h2>
-            <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-              Menú digital interactivo con notificaciones en vivo de los llamados al mozo.
-            </p>
-            <ul class="mt-7 space-y-3">
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Menú digital siempre ordenado
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Llamado al mozo con aviso en vivo
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Sin cartas impresas desactualizadas
-              </li>
-            </ul>
-          </div>
-          <figure class="group relative" data-reveal>
-            <div class="apple-frame aspect-[563/851] overflow-hidden">
-              <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover"
-                
-                alt="App del comensal de Pelican Bar: menú digital interactivo con llamados al mozo"
-                class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                loading="lazy"
-              /></video>
-            </div>
-          </figure>
-        </div>
-
-        <div id="app-pedidos" class="bg-[#f5f5f7]">
-          <div class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-            <figure class="group relative order-2 lg:order-1" data-reveal>
-              <div class="apple-frame aspect-[563/851] overflow-hidden">
-                <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover"
-                
-                alt="App del comensal de Pelican Bar: carrito para confirmar el pedido directo a cocina"
-                  class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-loading="lazy"
-              /></video>
-            </div>
-          </figure>
-            <div class="order-1 lg:order-2" data-reveal>
-              <h2 class="apple-headline text-balance text-[#1d1d1f]">
-                Pedidos sin intermediarios.
-              </h2>
-              <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-                Carrito de compras inteligente para que el cliente confirme su orden directo
-                a cocina.
-              </p>
-              <ul class="mt-7 space-y-3">
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Carrito que acompaña toda la visita
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Orden confirmada directo a cocina
-                </li>
-                <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                  Menos idas y vueltas entre barra y sala
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div id="app-pago" class="mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:px-8 lg:grid-cols-2 lg:gap-16 md:py-28">
-          <div data-reveal>
-            <h2 class="apple-headline text-balance text-[#1d1d1f]">
-              Pagos autónomos y&nbsp;rápidos.
-            </h2>
-            <p class="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-[#6e6e73]">
-              El cliente cierra su mesa seleccionando su método de pago preferido, agilizando
-              la rotación del salón.
-            </p>
-            <ul class="mt-7 space-y-3">
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Cierre de mesa sin esperar al mozo
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                El método de pago, elegido por el cliente
-              </li>
-              <li class="flex items-center gap-3 text-[0.9375rem] text-[#1d1d1f]">
-                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-[#0071e3]" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Rotación más rápida, noche con más covers
-              </li>
-            </ul>
-          </div>
-          <figure class="group relative" data-reveal>
-            <div class="apple-frame aspect-[563/851] overflow-hidden">
-              <video playsinline muted loop autoplay preload="auto" class="h-full w-full object-cover"
-                
-                alt="App del comensal de Pelican Bar: cierre de mesa y selección del método de pago"
-                class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                loading="lazy"
-              /></video>
-            </div>
-          </figure>
-        </div>
-      </section>
-
-      <section id="demo" class="mx-auto w-full max-w-7xl px-5 pb-24 pt-4 md:px-8 md:pb-32">
-        <div class="relative overflow-hidden rounded-[2rem] border border-[#e8e8ed] bg-[#f5f5f7] px-6 py-20 text-center md:rounded-[2.5rem] md:px-16 md:py-28" data-reveal>
-          <div class="relative">
-            <h2 class="apple-display mx-auto max-w-3xl text-balance text-[#1d1d1f]">
-              ¿Listo para digitalizar tu&nbsp;salón?
-            </h2>
-            <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[#6e6e73]">
-              Agendá una demo de veinte minutos y vemos tu salón real: caja, carta y la app
-              del comensal funcionando juntas.
-            </p>
-            <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-              <a
-                href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
-                class="inline-flex items-center gap-2 rounded-full bg-apple px-8 py-3.5 text-[0.9375rem] font-medium text-white transition-colors duration-150 hover:bg-[#0077ed] active:scale-[0.98]"
-              >
-                Agendar una demo
-              </a>
-              <a href="mailto:pelicanstudioarg@gmail.com" class="rounded-full px-5 py-3.5 text-sm font-medium text-[#6e6e73] underline decoration-[#d2d2d7] underline-offset-4 transition-colors hover:text-[#1d1d1f]">
-                o escribinos a pelicanstudioarg@gmail.com
-              </a>
-            </div>
-            <p class="mt-10 text-sm text-[#6e6e73]">Demo de 20 minutos con tu equipo · Sin compromiso</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="bg-[#f5f5f7]">
-      <div class="mx-auto w-full max-w-7xl px-5 pt-16 md:px-8">
-        <div class="grid gap-12 md:grid-cols-12">
-          <div class="md:col-span-5">
-            <div class="flex items-center gap-2.5">
-              <img src="./hero.png" alt="" class="h-8 w-auto rounded-lg" loading="lazy" aria-hidden="true" />
-              <span class="text-[0.9375rem] font-semibold tracking-tight text-[#1d1d1f]">Pelican Bar</span>
-            </div>
-            <p class="mt-4 max-w-sm text-sm leading-relaxed text-[#6e6e73]">
-              Pelican Gastrogesto: panel administrativo y app del comensal en un solo
-              ecosistema para bares y restaurantes.
-            </p>
-            <a
-              href="mailto:pelicanstudioarg@gmail.com?subject=Quiero%20agendar%20una%20demo%20de%20Pelican%20Bar"
-              class="mt-6 inline-flex rounded-full bg-apple px-6 py-3 text-sm font-medium text-white transition-colors duration-150 hover:bg-[#0077ed] active:scale-[0.98]"
-            >
-              Agendar demo
-            </a>
-          </div>
-
-          <div class="md:col-span-3">
-            <p class="text-xs font-semibold tracking-wide text-[#6e6e73]">Panel</p>
-            <ul class="mt-4 space-y-3 text-sm text-[#515154]">
-              <li><a href="#salon" class="footer-link">Salón en vivo</a></li>
-              <li><a href="#carta" class="footer-link">Carta y promociones</a></li>
-              <li><a href="#mesas" class="footer-link">Mesas y códigos QR</a></li>
-              <li><a href="#caja" class="footer-link">Cierre de caja</a></li>
-            </ul>
-          </div>
-
-          <div class="md:col-span-2">
-            <p class="text-xs font-semibold tracking-wide text-[#6e6e73]">Comensal</p>
-            <ul class="mt-4 space-y-3 text-sm text-[#515154]">
-              <li><a href="#app-menu" class="footer-link">Menú interactivo</a></li>
-              <li><a href="#app-pedidos" class="footer-link">Pedidos</a></li>
-              <li><a href="#app-pago" class="footer-link">Pagos</a></li>
-              <li><a href="#demo" class="footer-link">Demo</a></li>
-            </ul>
-          </div>
-
-          <div class="md:col-span-2">
-            <p class="text-xs font-semibold tracking-wide text-[#6e6e73]">Contacto</p>
-            <ul class="mt-4 space-y-3 text-sm text-[#515154]">
-              <li><a href="mailto:pelicanstudioarg@gmail.com" class="footer-link break-all">pelicanstudioarg@gmail.com</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-[#d2d2d7] py-8 text-[0.8125rem] text-[#6e6e73] sm:flex-row sm:items-center">
-          <p>© 2026 Pelican Studio. Todos los derechos reservados.</p>
-          <p>Hecho para bares y restaurantes que quieren un salón que se ve en vivo.</p>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      (function () {
-        document.documentElement.classList.add("js");
-
-        var heroVid = document.querySelector("#inicio video");
-        if (heroVid && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          heroVid.play().catch(function () {
-            var play = function () {
-              heroVid.play();
-              document.removeEventListener("click", play);
-              document.removeEventListener("touchstart", play);
-            };
-            document.addEventListener("click", play);
-            document.addEventListener("touchstart", play);
-          });
+<html class="scroll-smooth" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+@keyframes levitate{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes levitate-reverse{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes gentle-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.15)}}
+@keyframes marquee-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.anim-float-1{animation:levitate 4.5s ease-in-out infinite}
+.anim-float-2{animation:levitate-reverse 5.2s ease-in-out infinite .8s}
+.anim-float-3{animation:levitate 4.8s ease-in-out infinite 1.6s}
+.anim-pulse-dot{animation:gentle-pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+.marquee-track{display:flex;width:max-content;animation:marquee-scroll 18s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.reveal-item{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);will-change:opacity,transform}
+.reveal-item.is-revealed{opacity:1;transform:translateY(0)}
+.hero-title-entrance{animation:fadeInUp .9s cubic-bezier(.16,1,.3,1) forwards}
+.hero-visual-entrance{animation:fadeInUp 1.1s cubic-bezier(.16,1,.3,1) .2s backwards}
+.apple-card-hover{transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s cubic-bezier(.16,1,.3,1),border-color .35s ease}
+.apple-card-hover:hover{transform:translateY(-4px);box-shadow:0 16px 36px -12px rgba(0,89,181,.1),0 1px 3px rgba(0,0,0,.04)}
+@media (prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal-item{opacity:1!important;transform:none!important}}
+</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-tertiary-container":"#fcfbff","on-primary-fixed-variant":"#00458f","secondary-fixed-dim":"#a3cbf2","tertiary-container":"#0076d0","success-emerald":"#34C759","surface-dim":"#dcd9dc","error-container":"#ffdad6","secondary":"#396285","on-error-container":"#93000a","error":"#ba1a1a","charcoal-text":"#1D1D1F","inverse-surface":"#303032","inverse-on-surface":"#f3f0f2","border-glass":"rgba(255,255,255,0.65)","outline-variant":"#c1c6d6","tertiary-fixed":"#d3e3ff","surface-elevated":"#FFFFFF","secondary-container":"#aed6fe","on-secondary-fixed-variant":"#1f4a6c","on-secondary":"#ffffff","surface":"#fcf8fb","outline":"#717785","primary-fixed-dim":"#abc7ff","on-background":"#1b1b1d","charcoal-secondary":"#86868B","on-primary-fixed":"#001b3f","inverse-primary":"#abc7ff","secondary-fixed":"#cee5ff","on-primary-container":"#fcfbff","ocean-deep":"#07243A","border-hairline":"rgba(0,0,0,0.08)","primary-container":"#0071e3","surface-variant":"#e4e2e4","on-tertiary":"#ffffff","surface-container":"#f0edef","surface-container-high":"#eae7ea","surface-tint":"#005cbb","on-surface":"#1b1b1d","critical-red":"#FF3B30","on-surface-variant":"#414753","surface-glass":"rgba(255,255,255,0.72)","tertiary":"#005da6","on-error":"#ffffff","on-primary":"#ffffff","on-tertiary-fixed":"#001c39","primary":"#0059b5","primary-fixed":"#d7e2ff","surface-bright":"#fcf8fb","tertiary-fixed-dim":"#a3c9ff","canvas-background":"#F5F5F7","surface-container-highest":"#e4e2e4","background":"#fcf8fb","on-secondary-fixed":"#001d32","surface-container-low":"#f6f3f5","on-secondary-container":"#345d80","surface-container-lowest":"#ffffff","warning-amber":"#FF9F0A","on-tertiary-fixed-variant":"#004882"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"space-xl":"2.25rem","margin":"1rem","margin-lg":"3rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter":"1.25rem","gutter-lg":"2rem","margin-md":"2rem","space-xs":"0.25rem","space-md":"1rem"},"fontFamily":{"headline-md":["Inter"],"headline-lg":["Inter"],"label-numeric":["Inter"],"display-hero-mobile":["Inter"],"label-md":["Inter"],"body-md":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Inter"],"label-lg":["Inter"],"label-numeric-sm":["Inter"],"display-hero":["Inter"],"body-sm":["Inter"]},"fontSize":{"headline-md":["24px",{"lineHeight":"30px","letterSpacing":"-0.015em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-numeric":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}],"display-hero-mobile":["34px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.01em","fontWeight":"500"}],"body-md":["15px",{"lineHeight":"21px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["19px",{"lineHeight":"25px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-lg-mobile":["26px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"18px","letterSpacing":"-0.005em","fontWeight":"500"}],"label-numeric-sm":["14px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"600"}],"display-hero":["48px",{"lineHeight":"54px","letterSpacing":"-0.025em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-hairline/60 shadow-[0_1px_8px_rgba(0,0,0,0.03)] transition-all duration-300" id="main-nav-header"><div class="h-16 w-full max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between"><div class="flex items-center gap-space-sm group cursor-pointer transition-transform duration-200 active:scale-95"><img alt="Pelican Bar Logo" class="h-8 w-auto object-contain transition-transform duration-300 group-hover:rotate-6" src="https://lh3.googleusercontent.com/aida/AEtjO1Vh58K4g2Y4Ln06JhOU67FhrzbCh3SI4PMIe7DJb9WcxrhaWw0lwwRb1Fc4kgBxlxpVY6iqdMWxU0TJshJK2c7xEwtdphcoK3LQNMXk4Wnhksquu_mV0fgguzI7qEhtmwvLiDbcIiDwQypSQwaf39grQ3lSNxvhWkfPuT-aRqbgOo0-YBH1JGwuIOyoNsG23UmSxzgsjl_jdzk_dewjXqel7fOwYhfgLy5q-yFrR_qBLN0XIuWeoFfGGlUl"/><span class="font-headline-sm text-headline-sm text-charcoal-text tracking-tight">Pelican Bar</span></div><nav class="hidden md:flex items-center gap-space-xs" data-active-classes="bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-full"><a aria-current="page" class="px-space-md py-space-xs transition-all duration-300 bg-primary-container text-on-primary-container font-label-lg text-label-lg rounded-full shadow-sm hover:shadow active:scale-95" href="#panel">Panel</a><a class="px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated/70 transition-all duration-200 active:scale-95" href="#comensal">App Comensal</a><a class="px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated/70 transition-all duration-200 active:scale-95" href="#caracteristicas">Características</a><a class="px-space-md py-space-xs rounded-full font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-elevated/70 transition-all duration-200 active:scale-95" href="#metricas">Métricas</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center justify-center px-space-lg py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:opacity-95 hover:shadow-md active:scale-95 transition-all duration-300" href="#demo">Agendar demo</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center cursor-pointer shadow-sm hover:ring-2 hover:ring-primary-fixed transition-all duration-200 active:scale-90"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-16 bg-background"><div class="flex flex-col w-full selection:bg-primary-container selection:text-on-primary-container">
+<section class="relative w-full overflow-hidden px-margin md:px-margin-md lg:px-margin-lg pt-12 md:pt-20 pb-24 md:pb-32" id="hero-section"><div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[380px] bg-gradient-to-b from-primary-fixed/45 via-surface-glass to-transparent blur-3xl pointer-events-none rounded-full"></div><div class="absolute top-64 right-10 w-96 h-96 bg-secondary-fixed/30 blur-3xl pointer-events-none rounded-full"></div><div class="max-w-6xl mx-auto flex flex-col items-center text-center relative z-10"><div class="hero-title-entrance inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-surface-elevated/90 shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-md mb-8 border border-border-hairline hover:border-primary/30 transition-all duration-300 cursor-default hover:scale-105"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-emerald opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-success-emerald"></span></span><span class="font-label-md text-label-md tracking-widest text-charcoal-secondary uppercase select-none">PELICAN BAR OS</span></div><h1 class="hero-title-entrance font-display-hero text-display-hero md:text-[56px] md:leading-[62px] text-charcoal-text tracking-tight max-w-4xl">Control total. <span class="text-charcoal-secondary font-normal block sm:inline transition-colors hover:text-charcoal-text">—y un poco más—</span></h1><p class="hero-title-entrance font-body-lg text-body-lg text-charcoal-secondary max-w-2xl mt-6">El ecosistema definitivo para digitalizar tu salón y sorprender a tus comensales con precisión de milisegundo.</p><div class="hero-title-entrance flex flex-col sm:flex-row items-center gap-space-md mt-10"><a class="group inline-flex items-center justify-center gap-space-sm px-8 py-3.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:shadow-lg hover:bg-primary transition-all duration-300 active:scale-95" href="#demo"><span>Agendar una demo</span><span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1.5">arrow_forward</span></a><a class="group inline-flex items-center justify-center gap-space-xs px-8 py-3.5 rounded-full bg-surface-elevated/90 text-charcoal-text font-label-lg text-label-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)] backdrop-blur-md hover:bg-surface-elevated hover:shadow-md transition-all duration-300 active:scale-95 border border-border-hairline" href="#ecosistema"><span class="material-symbols-outlined text-[18px] text-primary transition-transform duration-300 group-hover:scale-110">play_circle</span><span>Ver el ecosistema</span></a></div><div class="hero-visual-entrance relative w-full mt-16 md:mt-20 max-w-5xl group"><div class="anim-float-1 absolute -top-6 -left-2 md:-left-6 z-20 hidden sm:flex items-center gap-space-sm px-4 py-2.5 rounded-full bg-surface-elevated/95 backdrop-blur-xl shadow-xl border border-white/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warning-amber opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-warning-amber"></span></span><span class="font-label-md text-label-md text-charcoal-text font-semibold">Mesa 4: Cuenta solicitada</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-secondary bg-surface-container-low px-2 py-0.5 rounded-full">$14.200</span></div><div class="anim-float-2 absolute top-12 -right-2 md:-right-6 z-20 hidden sm:flex items-center gap-space-sm px-4 py-2.5 rounded-full bg-surface-elevated/95 backdrop-blur-xl shadow-xl border border-white/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"><span class="material-symbols-outlined text-success-emerald text-[20px] anim-pulse-dot">sensors</span><div class="text-left"><span class="block font-label-md text-label-md text-charcoal-text font-semibold">Salón al 92%</span><span class="block text-[11px] text-charcoal-secondary">18 de 20 mesas activas</span></div></div><div class="anim-float-3 absolute -bottom-5 right-8 md:right-16 z-20 flex items-center gap-space-sm px-4 py-2.5 rounded-full bg-surface-elevated/95 backdrop-blur-xl shadow-xl border border-white/60 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"><div class="w-2 h-2 rounded-full bg-success-emerald anim-pulse-dot"></div><span class="font-label-md text-label-md text-charcoal-text">Caja en tiempo real:</span><span class="font-label-numeric-sm text-label-numeric-sm text-primary font-semibold">$348.500</span></div><div class="relative rounded-2xl md:rounded-3xl p-2.5 md:p-3.5 bg-gradient-to-b from-surface-elevated via-surface-container to-surface-dim shadow-2xl overflow-hidden border border-border-hairline transition-transform duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)]"><div class="relative rounded-xl md:rounded-2xl overflow-hidden bg-black aspect-[16/9]"><video playsinline muted loop autoplay preload="auto" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.015]" aria-hidden="true" tabindex="-1"><source src="./hero.mp4" type="video/mp4"></video><div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none"></div></div></div></div></div></section>
+<section class="reveal-item w-full px-margin md:px-margin-md lg:px-margin-lg py-16 md:py-24 bg-surface-container-low" id="ecosistema"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4"><div><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Arquitectura Unificada</span><h2 class="font-headline-lg text-headline-lg text-charcoal-text mt-2">Diseñado para la velocidad de la noche.</h2></div><p class="font-body-md text-body-md text-charcoal-secondary max-w-md">Cada arista del flujo gastronómico conectada en un solo plano visual ultra-rápido.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-6"><div class="apple-card-hover group flex flex-col justify-between p-8 rounded-2xl bg-surface-elevated shadow-sm border border-transparent hover:border-primary/20"><div><div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-[24px]">dashboard</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors duration-200">Panel administrativo</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">Salón en vivo, carta y caja auditada en una sola vista sin cambiar de pestañas.</p></div><div class="mt-8 pt-6 bg-surface-container-low rounded-xl p-4 flex flex-col gap-2 group-hover:bg-surface-container transition-colors duration-200"><div class="flex justify-between items-center text-body-sm text-charcoal-secondary"><span>Mesas activas</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text">14 / 16</span></div><div class="w-full bg-surface-dim h-1.5 rounded-full overflow-hidden"><div class="bg-primary h-full w-[88%] rounded-full transition-all duration-700 ease-out group-hover:w-[94%]"></div></div></div></div><div class="apple-card-hover group flex flex-col justify-between p-8 rounded-2xl bg-surface-elevated shadow-sm border border-transparent hover:border-tertiary/20"><div><div class="w-12 h-12 rounded-full bg-tertiary-container/15 flex items-center justify-center text-tertiary mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-tertiary group-hover:text-white"><span class="material-symbols-outlined text-[24px]">smartphone</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-tertiary transition-colors duration-200">Web app del comensal</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">Menú digital interactivo, carrito dinámico y pago autónomo por QR en cada mesa.</p></div><div class="mt-8 pt-6 bg-surface-container-low rounded-xl p-4 flex items-center justify-between group-hover:bg-surface-container transition-colors duration-200"><div class="flex items-center gap-3"><span class="material-symbols-outlined text-success-emerald text-[22px] transition-transform duration-300 group-hover:rotate-12">qr_code_scanner</span><span class="font-body-sm text-body-sm text-charcoal-text">Acceso sin descargas</span></div><span class="px-2 py-0.5 rounded-full bg-success-emerald/15 text-success-emerald font-label-md text-label-md font-semibold transition-transform duration-200 group-hover:scale-105">Instantáneo</span></div></div><div class="apple-card-hover group flex flex-col justify-between p-8 rounded-2xl bg-surface-elevated shadow-sm border border-transparent hover:border-warning-amber/20"><div><div class="w-12 h-12 rounded-full bg-warning-amber/15 flex items-center justify-center text-warning-amber mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-warning-amber group-hover:text-white"><span class="material-symbols-outlined text-[24px]">notifications_active</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-warning-amber transition-colors duration-200">Alertas en tiempo real</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">Cada pedido, llamado y cuenta llega al instante con aviso sonoro y visual simultáneo.</p></div><div class="mt-8 pt-6 bg-surface-container-low rounded-xl p-4 flex items-center justify-between group-hover:bg-surface-container transition-colors duration-200"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-warning-amber animate-ping"></span><span class="font-body-sm text-body-sm text-charcoal-text">Mesa 8 · Llamando mozo</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-secondary font-mono">00:12</span></div></div></div></div></section>
+<section class="w-full px-margin md:px-margin-md lg:px-margin-lg py-20 md:py-32 flex flex-col gap-24 md:gap-36 max-w-6xl mx-auto" id="caracteristicas"><div class="reveal-item grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"><div class="lg:col-span-5 flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Monitoreo Perceptivo</span><h2 class="font-headline-lg text-headline-lg text-charcoal-text mt-3">Tu salón, bajo radar.</h2><p class="font-body-lg text-body-lg text-charcoal-secondary mt-4 leading-relaxed">Monitorización en tiempo real con alertas sonoras y visuales cuando un comensal pide comida, llama al mozo o pide la cuenta.</p><ul class="flex flex-col gap-3.5 mt-8"><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Estado de cada mesa al instante</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Avisos sonoros y visuales por mesa</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Pedidos, llamados y cuentas sin perderse</span></li></ul></div><div class="lg:col-span-7"><div class="p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm border border-hairline/80 hover:shadow-md transition-shadow duration-300"><div class="flex items-center justify-between mb-6 pb-4 border-b border-border-hairline"><div class="flex items-center gap-3"><span class="w-3 h-3 rounded-full bg-success-emerald anim-pulse-dot"></span><span class="font-headline-sm text-headline-sm text-charcoal-text">Salón Principal</span></div><span class="font-label-md text-label-md text-charcoal-secondary flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>Actualización vía WebSocket</span></div><div class="grid grid-cols-2 sm:grid-cols-3 gap-3.5" id="table-cards-grid"><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:ring-1 hover:ring-success-emerald/40 group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors">Mesa 01</span><span class="px-2 py-0.5 rounded-full bg-success-emerald/15 text-success-emerald font-label-md text-label-md group-hover:bg-success-emerald group-hover:text-white transition-colors">Libre</span></div><span class="font-body-sm text-body-sm text-charcoal-secondary">4 pax max</span></div><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 ring-1 ring-primary/20 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:ring-primary/60 group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors">Mesa 02</span><span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-md text-label-md group-hover:bg-primary group-hover:text-white transition-colors">Ocupada</span></div><div><span class="font-body-sm text-body-sm text-charcoal-secondary block">2 pedidos activos</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text font-semibold">$9.400</span></div></div><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 ring-1 ring-warning-amber/40 animate-pulse cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-warning-amber transition-colors">Mesa 03</span><span class="px-2 py-0.5 rounded-full bg-warning-amber/20 text-warning-amber font-label-md text-label-md group-hover:bg-warning-amber group-hover:text-white transition-colors">Mozo</span></div><span class="font-body-sm text-body-sm text-warning-amber font-medium">Llamando hace 1m</span></div><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:ring-1 hover:ring-critical-red/40 group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-critical-red transition-colors">Mesa 04</span><span class="px-2 py-0.5 rounded-full bg-critical-red/15 text-critical-red font-label-md text-label-md group-hover:bg-critical-red group-hover:text-white transition-colors">Cuenta</span></div><div><span class="font-body-sm text-body-sm text-charcoal-secondary block">Mercado Pago</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text font-semibold">$14.200</span></div></div><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:ring-1 hover:ring-primary/30 group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors">Mesa 05</span><span class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-md text-label-md group-hover:bg-primary group-hover:text-white transition-colors">Ocupada</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text">$6.800</span></div><div class="p-4 rounded-xl bg-surface-elevated shadow-sm flex flex-col justify-between h-28 cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-md hover:ring-1 hover:ring-success-emerald/40 group"><div class="flex justify-between items-start"><span class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors">Mesa 06</span><span class="px-2 py-0.5 rounded-full bg-success-emerald/15 text-success-emerald font-label-md text-label-md group-hover:bg-success-emerald group-hover:text-white transition-colors">Libre</span></div><span class="font-body-sm text-body-sm text-charcoal-secondary">2 pax max</span></div></div></div></div></div>
+<div class="reveal-item grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"><div class="lg:col-span-7 order-2 lg:order-1"><div class="p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-6 border border-hairline/80"><div class="rounded-xl bg-charcoal-text text-surface-elevated p-4 flex items-center justify-between overflow-hidden shadow-inner relative group cursor-default"><div class="flex items-center gap-3 overflow-hidden flex-1 mr-3"><span class="w-2 h-2 rounded-full bg-primary-container animate-ping flex-shrink-0"></span><span class="font-label-md text-label-md uppercase tracking-wider text-charcoal-secondary flex-shrink-0">Marquee Salón:</span><div class="overflow-hidden whitespace-nowrap w-full"><div class="marquee-track flex gap-8"><span class="font-body-md text-body-md font-medium text-surface-elevated">"2x1 en Gin Tonic de autor hasta las 21:00 hs"</span><span class="font-body-md text-body-md text-charcoal-secondary">• Happy Hour en cervezas tiradas</span><span class="font-body-md text-body-md font-medium text-surface-elevated">"2x1 en Gin Tonic de autor hasta las 21:00 hs"</span><span class="font-body-md text-body-md text-charcoal-secondary">• Happy Hour en cervezas tiradas</span></div></div></div><span class="px-2.5 py-1 rounded-full bg-surface-elevated/20 text-surface-elevated font-label-md text-label-md flex-shrink-0 transition-transform duration-200 group-hover:scale-105">En vivo</span></div><div class="rounded-xl bg-surface-elevated p-5 shadow-sm flex flex-col gap-4 border border-border-hairline"><div class="flex items-center justify-between pb-3 border-b border-border-hairline"><span class="font-headline-sm text-headline-sm text-charcoal-text">Edición Inmediata de Precios</span><span class="font-body-sm text-body-sm text-success-emerald flex items-center gap-1"><span class="material-symbols-outlined text-[16px] anim-pulse-dot">cloud_done</span> Sincronizado</span></div><div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low transition-all duration-200 hover:bg-surface-elevated hover:shadow-sm group"><div><span class="font-body-md text-body-md text-charcoal-text font-medium block group-hover:text-primary transition-colors">Negroni Clásico</span><span class="font-body-sm text-body-sm text-charcoal-secondary">Campari, Gin, Vermouth Rosso</span></div><div class="flex items-center gap-2"><span class="font-label-numeric text-label-numeric text-charcoal-text font-semibold">$3.800</span><button aria-label="Editar Negroni" class="p-1.5 rounded-full hover:bg-primary-fixed hover:text-primary text-primary transition-all duration-200 active:scale-90"><span class="material-symbols-outlined text-[18px]">edit</span></button></div></div><div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low transition-all duration-200 hover:bg-surface-elevated hover:shadow-sm group"><div><span class="font-body-md text-body-md text-charcoal-text font-medium block group-hover:text-primary transition-colors">Hamburguesa Smash Pelican</span><span class="font-body-sm text-body-sm text-charcoal-secondary">Doble carne, cheddar, pan brioche</span></div><div class="flex items-center gap-2"><span class="font-label-numeric text-label-numeric text-charcoal-text font-semibold">$8.200</span><button aria-label="Editar Hamburguesa" class="p-1.5 rounded-full hover:bg-primary-fixed hover:text-primary text-primary transition-all duration-200 active:scale-90"><span class="material-symbols-outlined text-[18px]">edit</span></button></div></div></div></div></div><div class="lg:col-span-5 flex flex-col order-1 lg:order-2"><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Sincronización Total</span><h2 class="font-headline-lg text-headline-lg text-charcoal-text mt-3">Tu carta es tuya. <span class="font-normal text-charcoal-secondary block sm:inline transition-colors hover:text-charcoal-text">—y de tus clientes—</span></h2><p class="font-body-lg text-body-lg text-charcoal-secondary mt-4 leading-relaxed">Edición de precios en tiempo real y anuncios en el "Marquee" que aparecen al instante en los teléfonos de los comensales sin necesidad de reimprimir cartas.</p><ul class="flex flex-col gap-3.5 mt-8"><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Precios actualizados al momento</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Promociones visibles en el menú digital</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Marquee desde tu panel hacia cada teléfono</span></li></ul></div></div>
+<div class="reveal-item grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"><div class="lg:col-span-5 flex flex-col"><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Despliegue Físico</span><h2 class="font-headline-lg text-headline-lg text-charcoal-text mt-3">Tus mesas, tus reglas.</h2><p class="font-body-lg text-body-lg text-charcoal-secondary mt-4 leading-relaxed">Crea mesas y genera códigos QR al instante, listos para imprimir y pegar en tu local con estética editorial depurada.</p><ul class="flex flex-col gap-3.5 mt-8"><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Mesas creadas en segundos</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Código QR propio por mesa con token criptográfico</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Listo para imprimir y pegar en el local</span></li></ul></div><div class="lg:col-span-7 flex justify-center"><div class="p-8 rounded-2xl bg-surface-container-low shadow-sm w-full max-w-md flex flex-col items-center text-center border border-hairline/80"><div class="w-64 p-6 rounded-2xl bg-surface-elevated shadow-lg flex flex-col items-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 border border-border-hairline group"><div class="flex items-center gap-1.5 mb-3"><span class="font-headline-sm text-headline-sm text-charcoal-text tracking-tight group-hover:text-primary transition-colors">Pelican Bar</span></div><div class="w-40 h-40 bg-surface-container-highest rounded-xl p-3.5 flex items-center justify-center relative my-2 overflow-hidden group-hover:bg-primary-fixed/20 transition-colors"><span class="material-symbols-outlined text-charcoal-text text-[110px] transition-transform duration-500 group-hover:scale-105">qr_code_2</span></div><span class="font-headline-md text-headline-md text-charcoal-text mt-2">Mesa 12</span><span class="font-body-sm text-body-sm text-charcoal-secondary mt-1">Escaneá para ver la carta y pedir</span></div><div class="mt-6 flex items-center gap-3"><button class="group relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:shadow-md hover:bg-primary active:scale-95 transition-all duration-300 overflow-hidden" id="btn-download-pdf"><span class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-12">print</span><span id="btn-download-text">Descargar PDF Vectorial</span></button></div></div></div></div>
+<div class="reveal-item grid grid-cols-1 lg:grid-cols-12 gap-12 items-center" id="metricas"><div class="lg:col-span-7 order-2 lg:order-1"><div class="p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm flex flex-col gap-6 border border-hairline/80"><div class="flex items-center justify-between"><div><span class="font-label-md text-label-md text-charcoal-secondary uppercase tracking-wider">Cierre de Caja Diario</span><h3 class="font-headline-lg text-headline-lg text-charcoal-text mt-1">$842.190,00</h3></div><button class="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-elevated shadow-sm text-charcoal-text font-label-md text-label-md hover:bg-primary hover:text-white transition-all duration-200 active:scale-95 border border-border-hairline" id="btn-export-csv"><span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-y-0.5">file_download</span><span id="btn-export-text">Exportar .CSV</span></button></div><div class="flex flex-col gap-3 pt-4 bg-surface-elevated p-5 rounded-xl shadow-sm border border-border-hairline"><div class="flex justify-between items-center text-body-sm transition-colors hover:text-primary"><span class="flex items-center gap-2 text-charcoal-text"><span class="w-3 h-3 rounded-full bg-primary-container"></span> Mercado Pago / QR Transfer</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text font-semibold">$524.300 (62%)</span></div><div class="flex justify-between items-center text-body-sm transition-colors hover:text-secondary"><span class="flex items-center gap-2 text-charcoal-text"><span class="w-3 h-3 rounded-full bg-secondary"></span> Tarjetas Débito / Crédito</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text font-semibold">$248.100 (29%)</span></div><div class="flex justify-between items-center text-body-sm transition-colors hover:text-charcoal-secondary"><span class="flex items-center gap-2 text-charcoal-text"><span class="w-3 h-3 rounded-full bg-charcoal-secondary"></span> Efectivo en Barra</span><span class="font-label-numeric-sm text-label-numeric-sm text-charcoal-text font-semibold">$69.790 (9%)</span></div><div class="w-full h-3 rounded-full bg-surface-container-highest flex overflow-hidden mt-2 p-[1px] hover:p-0 transition-all duration-300"><div class="bg-primary-container h-full w-[62%] transition-all duration-500 hover:opacity-90"></div><div class="bg-secondary h-full w-[29%] transition-all duration-500 hover:opacity-90"></div><div class="bg-charcoal-secondary h-full w-[9%] transition-all duration-500 hover:opacity-90"></div></div></div></div></div><div class="lg:col-span-5 flex flex-col order-1 lg:order-2"><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Cierre Infalible</span><h2 class="font-headline-lg text-headline-lg text-charcoal-text mt-3">Auditoría exacta. <span class="font-normal text-charcoal-secondary block sm:inline transition-colors hover:text-charcoal-text">—a un solo clic—</span></h2><p class="font-body-lg text-body-lg text-charcoal-secondary mt-4 leading-relaxed">Desglose automático por método de pago y exportación blindada a Excel (.csv). Cierre de caja sin planillas a mano ni errores de sumatoria al final del turno.</p><ul class="flex flex-col gap-3.5 mt-8"><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Desglose por método de pago</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Exportación a Excel (.csv) en un clic</span></li><li class="flex items-center gap-3 transition-transform duration-200 hover:translate-x-1"><span class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[14px]">check</span></span><span class="font-body-md text-body-md text-charcoal-text">Cierre de caja sin planillas a mano</span></li></ul></div></div></section>
+<section class="reveal-item w-full px-margin md:px-margin-md lg:px-margin-lg py-20 md:py-28 bg-canvas-background" id="comensal"><div class="max-w-6xl mx-auto"><div class="text-center max-w-3xl mx-auto mb-16"><span class="font-label-md text-label-md uppercase tracking-wider text-primary">Experiencia del Comensal</span><h2 class="font-headline-lg text-headline-lg md:text-[38px] md:leading-[44px] text-charcoal-text mt-2">Cada mesa, una app lista para usar.</h2><p class="font-body-lg text-body-lg text-charcoal-secondary mt-4">Con un escaneo de QR, tu cliente navega el menú, arma su pedido y cierra su mesa sin intermediarios.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8"><div class="apple-card-hover group p-8 rounded-2xl bg-surface-elevated shadow-sm flex flex-col justify-between border border-transparent hover:border-primary/20"><div><div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-[20px]">restaurant_menu</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors duration-200">La App que tus clientes amarán</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">Menú digital interactivo con fotos apetitosas, filtros dietéticos y notificaciones en vivo.</p></div><ul class="flex flex-col gap-2.5 mt-6 pt-6 border-t border-border-hairline"><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Menú digital siempre ordenado</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Llamado al mozo con aviso en vivo</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Sin cartas impresas desactualizadas</li></ul></div><div class="apple-card-hover group p-8 rounded-2xl bg-surface-elevated shadow-sm flex flex-col justify-between border border-transparent hover:border-primary/20"><div><div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-[20px]">shopping_bag</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors duration-200">Pedidos sin intermediarios</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">Carrito de compras inteligente para que el cliente confirme su orden directo a barra o cocina.</p></div><ul class="flex flex-col gap-2.5 mt-6 pt-6 border-t border-border-hairline"><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Carrito que acompaña toda la visita</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Orden confirmada directo a cocina</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Menos idas y vueltas entre barra y sala</li></ul></div><div class="apple-card-hover group p-8 rounded-2xl bg-surface-elevated shadow-sm flex flex-col justify-between border border-transparent hover:border-primary/20"><div><div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary group-hover:text-white"><span class="material-symbols-outlined text-[20px]">credit_card</span></div><h3 class="font-headline-sm text-headline-sm text-charcoal-text group-hover:text-primary transition-colors duration-200">Pagos autónomos y rápidos</h3><p class="font-body-md text-body-md text-charcoal-secondary mt-3">El comensal cierra su mesa seleccionando su método preferido, agilizando la rotación del salón.</p></div><ul class="flex flex-col gap-2.5 mt-6 pt-6 border-t border-border-hairline"><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Cierre de mesa sin esperar al mozo</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> El método de pago, elegido por el cliente</li><li class="font-body-sm text-body-sm text-charcoal-text flex items-center gap-2 transition-transform duration-200 hover:translate-x-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Rotación más rápida, noche con más covers</li></ul></div></div></div></section>
+<section class="reveal-item relative w-full px-margin md:px-margin-md lg:px-margin-lg py-24 md:py-36 bg-surface-elevated overflow-hidden" id="demo"><div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary-fixed/30 blur-3xl pointer-events-none rounded-full"></div><div class="max-w-4xl mx-auto text-center relative z-10 flex flex-col items-center"><h2 class="font-display-hero text-display-hero md:text-[54px] md:leading-[60px] text-charcoal-text tracking-tight max-w-3xl">¿Listo para digitalizar tu salón?</h2><p class="font-body-lg text-body-lg text-charcoal-secondary max-w-2xl mt-6">Agendá una demo de veinte minutos y vemos tu salón real: caja, carta y la app del comensal funcionando juntas.</p><div class="flex flex-col sm:flex-row items-center gap-space-md mt-10"><a class="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-primary-container text-on-primary-container font-headline-sm text-headline-sm shadow-md hover:shadow-xl hover:bg-primary active:scale-95 transition-all duration-300" href="mailto:pelicanstudioarg@gmail.com?subject=Demo%20Pelican%20Bar"><span>Agendar una demo</span><span class="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:translate-x-1">mail</span></a></div><div class="mt-6 flex flex-col sm:flex-row items-center gap-2 text-charcoal-secondary font-body-md text-body-md"><span>o escribinos a</span><a class="text-primary hover:underline font-medium hover:text-primary-container transition-colors" href="mailto:pelicanstudioarg@gmail.com">pelicanstudioarg@gmail.com</a></div><div class="mt-12 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-surface-container-low text-charcoal-secondary font-label-md text-label-md border border-border-hairline hover:bg-surface-elevated hover:shadow-sm transition-all cursor-default"><span class="material-symbols-outlined text-success-emerald text-[16px]">verified</span><span>Demo de 20 minutos con tu equipo · Sin compromiso</span></div></div></section>
+</div></main><footer class="w-full bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] py-margin-md border-t border-border-hairline"><div class="w-full max-w-7xl mx-auto px-margin md:px-margin-md lg:px-margin-lg"><div class="flex flex-col md:flex-row items-center justify-between gap-space-lg pb-space-lg"><div class="flex flex-col items-center md:items-start gap-space-xs"><div class="flex items-center gap-space-xs cursor-pointer group"><img alt="Pelican Bar Logo" class="h-6 w-auto object-contain transition-transform group-hover:rotate-6" src="https://lh3.googleusercontent.com/aida/AEtjO1Vh58K4g2Y4Ln06JhOU67FhrzbCh3SI4PMIe7DJb9WcxrhaWw0lwwRb1Fc4kgBxlxpVY6iqdMWxU0TJshJK2c7xEwtdphcoK3LQNMXk4Wnhksquu_mV0fgguzI7qEhtmwvLiDbcIiDwQypSQwaf39grQ3lSNxvhWkfPuT-aRqbgOo0-YBH1JGwuIOyoNsG23UmSxzgsjl_jdzk_dewjXqel7fOwYhfgLy5q-yFrR_qBLN0XIuWeoFfGGlUl"/><span class="font-headline-sm text-headline-sm text-charcoal-text">Pelican Bar</span></div><p class="font-body-sm text-body-sm text-charcoal-secondary">Next-gen point-of-sale and guest experience architecture.</p></div><div class="flex flex-wrap items-center justify-center gap-space-lg"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:underline transition-colors" href="mailto:pelicanstudioarg@gmail.com">pelicanstudioarg@gmail.com</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:underline transition-colors" href="#">Privacidad</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:underline transition-colors" href="#">Términos</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface hover:underline transition-colors" href="#">Contacto</a></div><div class="flex items-center gap-space-sm"><a aria-label="Community" class="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center text-on-surface-variant hover:text-primary hover:shadow-md shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all active:scale-95" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a><a aria-label="Chat" class="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center text-on-surface-variant hover:text-primary hover:shadow-md shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all active:scale-95" href="#"><span class="material-symbols-outlined text-[18px]">forum</span></a><a aria-label="Support" class="w-9 h-9 rounded-full bg-surface-elevated flex items-center justify-center text-on-surface-variant hover:text-primary hover:shadow-md shadow-[0_1px_4px_rgba(0,0,0,0.04)] transition-all active:scale-95" href="#"><span class="material-symbols-outlined text-[18px]">support_agent</span></a></div></div><div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm border-t border-border-hairline"><p class="font-body-sm text-body-sm text-charcoal-secondary">© 2026 Pelican Bar. Todos los derechos reservados.</p><p class="font-body-sm text-body-sm text-charcoal-secondary">Diseñado con precisión e ingeniería minimalista.</p></div></div></footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const revealElements = document.querySelectorAll('.reveal-item');
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
         }
-
-        var nav = document.querySelector("header");
-        var inicio = document.getElementById("inicio");
-        if (nav && inicio) {
-          var navH = nav.offsetHeight;
-          var updateNav = function () {
-            var r = inicio.getBoundingClientRect();
-            nav.classList.toggle("over-hero", r.top < navH - 1 && r.bottom > navH);
-          };
-          updateNav();
-          var onScroll = function () { updateNav(); };
-          document.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll, { passive: true });
-          window.addEventListener("load", onScroll, { passive: true });
-          if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(function () { updateNav(); });
-          }
-        }
-
-        var menuBtn = document.getElementById("boton-menu");
-        var menu = document.getElementById("menu-movil");
-        if (menuBtn && menu) {
-          var links = menu.querySelectorAll("a");
-          menuBtn.addEventListener("click", function () {
-            var open = menu.classList.toggle("hidden") === false;
-            menuBtn.setAttribute("aria-expanded", String(open));
-            menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-          });
-          links.forEach(function (link) {
-            link.addEventListener("click", function () {
-              menu.classList.add("hidden");
-              menuBtn.setAttribute("aria-expanded", "false");
-              menuBtn.setAttribute("aria-label", "Abrir menú");
-            });
-          });
-          document.addEventListener("keydown", function (e) {
-            if (e.key === "Escape" && !menu.classList.contains("hidden")) {
-              menu.classList.add("hidden");
-              menuBtn.setAttribute("aria-expanded", "false");
-              menuBtn.focus();
-            }
-          });
-        }
-
-        if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          var els = document.querySelectorAll("[data-reveal]");
-          if (els.length) {
-            var io = new IntersectionObserver(
-              function (entries) {
-                entries.forEach(function (entry) {
-                  if (entry.isIntersecting) {
-                    entry.target.classList.add("is-in");
-                    io.unobserve(entry.target);
-                  }
-                });
-              },
-              { threshold: 0.15 }
-            );
-            els.forEach(function (el) {
-              io.observe(el);
-            });
-          }
-        }
-      })();
-    </script>
-  </body>
-</html>
-
-
-
-
-
-
-
-
-
+      });
+    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.12 });
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+      heroSection.querySelectorAll('.anim-float-1, .anim-float-2, .anim-float-3').forEach((pill, idx) => {
+        pill.style.transform = `translate(${x * (idx + 1) * 0.3}px, ${y * (idx + 1) * 0.3}px)`;
+      });
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      heroSection.querySelectorAll('.anim-float-1, .anim-float-2, .anim-float-3').forEach(pill => { pill.style.transform = ''; });
+    });
+  }
+  const btnDownloadPdf = document.getElementById('btn-download-pdf');
+  const btnDownloadText = document.getElementById('btn-download-text');
+  if (btnDownloadPdf && btnDownloadText) {
+    btnDownloadPdf.addEventListener('click', (e) => {
+      e.preventDefault();
+      const orig = btnDownloadText.innerText;
+      btnDownloadText.innerText = 'Generando archivo...';
+      btnDownloadPdf.classList.add('opacity-80', 'scale-95');
+      setTimeout(() => { btnDownloadText.innerText = '¡PDF Descargado!'; btnDownloadPdf.classList.remove('opacity-80', 'scale-95'); setTimeout(() => { btnDownloadText.innerText = orig; }, 2200); }, 700);
+    });
+  }
+  const btnExportCsv = document.getElementById('btn-export-csv');
+  const btnExportText = document.getElementById('btn-export-text');
+  if (btnExportCsv && btnExportText) {
+    btnExportCsv.addEventListener('click', (e) => {
+      e.preventDefault();
+      const orig = btnExportText.innerText;
+      btnExportText.innerText = 'Exportando...';
+      setTimeout(() => { btnExportText.innerText = '¡Listo!'; setTimeout(() => { btnExportText.innerText = orig; }, 1800); }, 500);
+    });
+  }
+  const header = document.getElementById('main-nav-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) { header?.classList.add('shadow-md', 'bg-surface-glass/95'); } else { header?.classList.remove('shadow-md', 'bg-surface-glass/95'); }
+  }, { passive: true });
+});
+</script>
+</body></html>
